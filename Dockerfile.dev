@@ -5,6 +5,15 @@ WORKDIR /vsdbg
 # for vscode debugging
 RUN curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v latest -l /vsdbg
 
+# for sonarqube
+RUN apt-get update \
+	&& mkdir /usr/share/man/man1/ \
+	&& apt-get install -y --no-install-recommends default-jre \
+	&& rm -rf /var/lib/apt/lists/*
+
 WORKDIR /workspace
+
+COPY .config .config/
+RUN dotnet tool restore
 
 CMD ["dotnet", "watch", "--project", "src/SonarQubeTutorial.Api", "run"]

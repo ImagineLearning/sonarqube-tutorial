@@ -17,3 +17,9 @@ docker-compose build
 ```bash
 docker-compose up
 ```
+
+## Running the SonarScanner
+
+```bash
+docker-compose run --rm sonarqube-tutorial-api ./scripts/sonarqube.sh
+```

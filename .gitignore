@@ -21,3 +21,9 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
+
+# Docker
+docker-compose.override.yml
+
+# Misc
+.sonarqube
