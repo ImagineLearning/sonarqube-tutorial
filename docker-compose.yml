@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  sonarqube-tutorial-api:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/workspace:cached
+      # So assets built in the container don't conflict with local ones
+      - /workspace/src/SonarQubeTutorial.Api/bin/
+      - /workspace/src/SonarQubeTutorial.Api/obj/
